@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 namespace LINQWithhColloction
 {
     internal class Program
@@ -21,10 +22,8 @@ namespace LINQWithhColloction
                         AddStudent();
                         break;
                     case 2:
-                        DisplayAllStudent();
+                        DisplayAllStudents();
                         break;
-
-
                 }
             }
             
@@ -48,8 +47,8 @@ namespace LINQWithhColloction
             };
             students.Add(newStudent);
             Console.WriteLine("Student added successfully!\n");
-
-            static void DisplayAllStudent()
+        }
+            static void DisplayAllStudents()
             {
                 if (students.Any())
                 {
@@ -57,7 +56,7 @@ namespace LINQWithhColloction
                     var studentQuery = from student in students select student;
                     foreach (var student in studentQuery)
                     {
-                        Console.WriteLine($"Id: {student.Id}\n,Name: {student.Name}\n,Age: {student.Age}\n, ");
+                        Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Age: {student.Age}, Department: {student.Department}");
                     }
                     
                 }
@@ -67,7 +66,7 @@ namespace LINQWithhColloction
                 }
             }
 
-        }
+        
             
     }
 }
